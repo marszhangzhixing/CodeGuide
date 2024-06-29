@@ -90,9 +90,9 @@ lock: need
 	<img src="https://bugstack.cn/images/roadmap/tutorial/roadmap-ignite-08.png?raw=true" width="850px"/>
 </div>
 
-- app层；application-dev.yml 配置多套数据源，并在 DataSourceConfig 中实现多套数据源的加载。
-- infrastructure层；用于提供数据的 dao 层，这里分开2套分别提供。
-- trigger；触发器层，提供了调用 Ignite、MySQL 的测试验证接口。
+- app层：application-dev.yml 配置多套数据源，并在 DataSourceConfig 中实现多套数据源的加载。
+- infrastructure层：用于提供数据的 dao 层，这里分开2套分别提供。
+- trigger：触发器层，提供了调用 Ignite、MySQL 的测试验证接口。
 
 ### 2. 数据源创建
 
@@ -203,10 +203,10 @@ static class MysqlMyBatisConfig {
 
 ### 2. MySQL 压测
 
-- 初始化ID值：`ab -c 1 -n 1 http://127.0.0.1:8091/api/ignite/start`
-- 写入数据：`ab -c 20 -n 50000 http://127.0.0.1:8091/api/ignite/insert`
-- 随机加载内存1000条数据：`ab -c 20 -n 1000 http://127.0.0.1:8091/api/ignite/cacheData`
-- 根据加载到内存的数据查询MySQL：`ab -c 20 -n 1000 http://127.0.0.1:8091/api/ignite/selectByOrderId` - 记得给 OrderId 加索引
+- 初始化ID值：`ab -c 1 -n 1 http://127.0.0.1:8091/api/mysql/start`
+- 写入数据：`ab -c 20 -n 50000 http://127.0.0.1:8091/api/mysql/insert`
+- 随机加载内存1000条数据：`ab -c 20 -n 1000 http://127.0.0.1:8091/api/mysql/cacheData`
+- 根据加载到内存的数据查询MySQL：`ab -c 20 -n 1000 http://127.0.0.1:8091/api/mysql/selectByOrderId`
 
 <div align="center">
 	<img src="https://bugstack.cn/images/roadmap/tutorial/roadmap-ignite-11.png?raw=true" width="650px"/>
